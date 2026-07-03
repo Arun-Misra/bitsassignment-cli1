@@ -1,0 +1,69 @@
+…/bitsassignment on  master ➜ mkdir question3       
+
+…/bitsassignment on  master ➜ question3             
+
+…/bitsassignment/question3 on  master ➜ mkdir images   
+
+…/bitsassignment/question3 on  master ➜ ls
+ images
+
+
+(Created a text file containing sample data for link analysis)
+…/bitsassignment/question3 on  master ➜ echo "Linux Lab" > original.txt
+
+
+(Created a hard link pointing to the same inode as the original file.)
+…/bitsassignment/question3 on  master ? ➜ ln original.txt hardlink.txt
+
+(Created a symbolic link that stores the pathname of the original file instead of sharing its inode.)
+…/bitsassignment/question3 on  master ? ➜ ln -s original.txt symlink.txt
+
+(Displays inode numbers. The original file and hard link share the same inode, while the symbolic link has a different inode.)
+…/bitsassignment/question3 on  master ? ➜ ls -li
+804305 .rw-r--r-- 10 arun  3 Jul 19:36  hardlink.txt
+804298 drwxr-xr-x  - arun  3 Jul 19:36  images
+804305 .rw-r--r-- 10 arun  3 Jul 19:36  original.txt
+804312 lrwxrwxrwx  - arun  3 Jul 19:36  symlink.txt -> original.txt
+
+
+(The metadata shows ownership, timestamps, permissions, and inode details for each file.)
+…/bitsassignment/question3 on  master ? ➜ stat original.txt
+  File: original.txt
+  Size: 10        	Blocks: 8          IO Block: 4096   regular file
+Device: 0,36	Inode: 804305      Links: 2
+Access: (0644/-rw-r--r--)  Uid: ( 1000/    arun)   Gid: ( 1000/    arun)
+Access: 2026-07-03 19:36:45.417363665 +0530
+Modify: 2026-07-03 19:36:45.417363665 +0530
+Change: 2026-07-03 19:36:50.061262376 +0530
+ Birth: 2026-07-03 19:36:45.417363665 +0530
+
+…/bitsassignment/question3 on  master ? ➜ stat hardlink.txt
+  File: hardlink.txt
+  Size: 10        	Blocks: 8          IO Block: 4096   regular file
+Device: 0,36	Inode: 804305      Links: 2
+Access: (0644/-rw-r--r--)  Uid: ( 1000/    arun)   Gid: ( 1000/    arun)
+Access: 2026-07-03 19:36:45.417363665 +0530
+Modify: 2026-07-03 19:36:45.417363665 +0530
+Change: 2026-07-03 19:36:50.061262376 +0530
+ Birth: 2026-07-03 19:36:45.417363665 +0530
+
+…/bitsassignment/question3 on  master ? ➜ stat symlink.txt
+  File: symlink.txt -> original.txt
+  Size: 12        	Blocks: 8          IO Block: 4096   symbolic link
+Device: 0,36	Inode: 804312      Links: 1
+Access: (0777/lrwxrwxrwx)  Uid: ( 1000/    arun)   Gid: ( 1000/    arun)
+Access: 2026-07-03 19:36:58.578408507 +0530
+Modify: 2026-07-03 19:36:58.566413935 +0530
+Change: 2026-07-03 19:36:58.566413935 +0530
+ Birth: 2026-07-03 19:36:58.566413935 +0530
+
+(Removed the original file to observe the behavior of both link types.)
+…/bitsassignment/question3 on  master ? ➜ rm original.txt
+
+(The hard link still contains the data because it references the same inode.)
+…/bitsassignment/question3 on  master ? ➜ cat hardlink.txt
+Linux Lab
+
+(The symbolic link becomes broken because its target file no longer exists.)
+…/bitsassignment/question3 on  master ? ➜ cat symlink.txt
+cat: symlink.txt: No such file or directory
