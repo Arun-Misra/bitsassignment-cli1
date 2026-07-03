@@ -1,0 +1,53 @@
+(Lists currently open files and the processes using them. Linux represents many resources as files.)
+…/bitsassignment/question4 on  master ➜ lsof | head -n 5
+COMMAND     PID   TID TASKCMD   USER   FD      TYPE             DEVICE  SIZE/OFF   NODE NAME
+systemd     544                 arun  cwd   unknown                                     /proc/544/cwd (readlink: Permission denied)
+systemd     544                 arun  rtd   unknown                                     /proc/544/root (readlink: Permission denied)
+systemd     544                 arun  txt   unknown                                     /proc/544/exe (readlink: Permission denied)
+systemd     544                 arun    0   unknown                                     /proc/544/fd/0 (readlink: Permission denied)
+
+…/bitsassignment/question4 on  master ➜ lsof | tail -n 5 
+lsof      38758                 arun  mem       REG               0,35            16060 /usr/lib/libgssapi_krb5.so.2.2 (path dev=0,36)
+lsof      38758                 arun  mem       REG               0,35            16464 /usr/lib/libtirpc.so.3.0.0 (path dev=0,36)
+lsof      38758                 arun  mem       REG               0,35             3776 /usr/lib/ld-linux-x86-64.so.2 (path dev=0,36)
+lsof      38758                 arun    0r     FIFO               0,16       0t0 320118 pipe
+lsof      38758                 arun    1w     FIFO               0,16       0t0 320119 pipe
+
+(Displays system resource limits such as maximum open files and process limits.)
+…/bitsassignment/question4 on  master ➜ ulimit -a
+-t: cpu time (seconds)              unlimited
+-f: file size (blocks)              unlimited
+-d: data seg size (kbytes)          unlimited
+-s: stack size (kbytes)             8192
+-c: core file size (blocks)         unlimited
+-m: resident set size (kbytes)      unlimited
+-u: processes                       30115
+-n: file descriptors                1024
+-l: locked-in-memory size (kbytes)  8192
+-v: address space (kbytes)          unlimited
+-x: file locks                      unlimited
+-i: pending signals                 30115
+-q: bytes in POSIX msg queues       819200
+-e: max nice                        0
+-r: max rt priority                 0
+-N 15: rt cpu time (microseconds)   unlimited
+
+…/bitsassignment/question4 on  master ➜ ls              
+ images
+
+(Redirected the standard output of the command into a file instead of displaying it on the terminal.)
+…/bitsassignment/question4 on  master ➜ ulimit -a > output.txt
+
+(Redirected the error message to a separate file while keeping the terminal clean.)
+…/bitsassignment/question4 on  master ? ➜ ls nonexistent 2> error.txt
+
+(Successfully separated standard output and error output into different files.)
+…/bitsassignment/question4 on  master ? ➜ ls existing nonexistent > output.txt 2> error.txt
+
+(Displays the file descriptors of the current shell. Standard input, output, and error correspond to descriptors 0, 1, and 2.)
+…/bitsassignment/question4 on  master ? ➜ ls -l /proc/$$/fd
+lrwx------ - arun  3 Jul 20:08 󰡯 0 -> /dev/pts/0
+lrwx------ - arun  3 Jul 20:08 󰡯 1 -> /dev/pts/0
+lrwx------ - arun  3 Jul 20:08 󰡯 2 -> /dev/pts/0
+lrwx------ - arun  3 Jul 20:08 󰡯 10 -> /dev/pts/0
+l-wx------ - arun  3 Jul 20:08 󰡯 13 -> /dev/pts/0
