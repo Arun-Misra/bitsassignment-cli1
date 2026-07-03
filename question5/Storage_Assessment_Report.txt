@@ -1,0 +1,91 @@
+(Displays available block storage devices, partitions, and mount points.)
+…/bitsassignment on  master ? ➜ lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+zram0       253:0    0     4G  0 disk [SWAP]
+nvme0n1     259:0    0 238.5G  0 disk 
+├─nvme0n1p1 259:1    0   260M  0 part 
+├─nvme0n1p2 259:2    0 131.2G  0 part 
+├─nvme0n1p3 259:3    0   801M  0 part 
+├─nvme0n1p4 259:4    0   512M  0 part /boot
+├─nvme0n1p5 259:5    0     2G  0 part [SWAP]
+└─nvme0n1p6 259:6    0 103.7G  0 part /
+
+(Lists all currently mounted file systems and their mount locations.)
+…/bitsassignment on  master ? ➜ mount
+/dev/nvme0n1p6 on / type btrfs (rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=5,subvol=/)
+devtmpfs on /dev type devtmpfs (rw,nosuid,size=3815008k,nr_inodes=953752,mode=755,inode64,huge=within_size)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev,inode64,huge=within_size,usrquota)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=600,ptmxmode=000)
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+cgroup2 on /sys/fs/cgroup type cgroup2 (rw,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot,memory_hugetlb_accounting)
+none on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)
+efivarfs on /sys/firmware/efi/efivars type efivarfs (rw,nosuid,nodev,noexec,relatime)
+bpf on /sys/fs/bpf type bpf (rw,nosuid,nodev,noexec,relatime,mode=700)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,size=1552084k,nr_inodes=819200,mode=755,inode64,huge=within_size)
+systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=42,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=6191)
+debugfs on /sys/kernel/debug type debugfs (rw,nosuid,nodev,noexec,relatime)
+configfs on /sys/kernel/config type configfs (rw,nosuid,nodev,noexec,relatime)
+none on /run/credentials/systemd-journald.service type tmpfs (ro,nosuid,nodev,noexec,relatime,nosymfollow,size=1024k,nr_inodes=1024,mode=700,inode64,huge=within_size,noswap)
+mqueue on /dev/mqueue type mqueue (rw,nosuid,nodev,noexec,relatime)
+tracefs on /sys/kernel/tracing type tracefs (rw,nosuid,nodev,noexec,relatime)
+fusectl on /sys/fs/fuse/connections type fusectl (rw,nosuid,nodev,noexec,relatime)
+hugetlbfs on /dev/hugepages type hugetlbfs (rw,nosuid,nodev,relatime,pagesize=2M)
+binfmt_misc on /proc/sys/fs/binfmt_misc type binfmt_misc (rw,nosuid,nodev,noexec,relatime)
+/dev/nvme0n1p4 on /boot type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro)
+tmpfs on /tmp type tmpfs (rw,nosuid,nodev,size=3880204k,nr_inodes=1048576,inode64,huge=within_size,usrquota)
+tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,size=776040k,nr_inodes=194010,mode=700,uid=1000,gid=1000,inode64,huge=within_size)
+portal on /run/user/1000/doc type fuse.portal (rw,nosuid,nodev,relatime,user_id=1000,group_id=1000)
+
+(Shows disk usage in a human-readable format, including used and available storage.)
+…/bitsassignment on  master ? ➜ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p6  104G   18G   86G  18% /
+devtmpfs        3.7G     0  3.7G   0% /dev
+tmpfs           3.8G  508K  3.7G   1% /dev/shm
+efivarfs        192K   86K  102K  46% /sys/firmware/efi/efivars
+tmpfs           1.5G  1.5M  1.5G   1% /run
+none            1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+/dev/nvme0n1p4  511M   59M  453M  12% /boot
+tmpfs           3.8G  2.1M  3.7G   1% /tmp
+tmpfs           758M  5.7M  753M   1% /run/user/1000
+
+(Displays inode utilization, which indicates the number of files that can still be created.)
+…/bitsassignment on  master ? ➜ df -i
+Filesystem      Inodes IUsed   IFree IUse% Mounted on
+/dev/nvme0n1p6       0     0       0     - /
+devtmpfs        953752   651  953101    1% /dev
+tmpfs           970050    16  970034    1% /dev/shm
+efivarfs             0     0       0     - /sys/firmware/efi/efivars
+tmpfs           819200  1122  818078    1% /run
+none              1024     1    1023    1% /run/credentials/systemd-journald.service
+/dev/nvme0n1p4       0     0       0     - /boot
+tmpfs          1048576    96 1048480    1% /tmp
+tmpfs           194010   111  193899    1% /run/user/1000
+
+
+(Displays partition information and disk layouts. Administrative privileges may be required.)
+…/bitsassignment on  master ? ➜ sudo fdisk -l
+[sudo] password for arun: 
+Disk /dev/nvme0n1: 238.47 GiB, 256060514304 bytes, 500118192 sectors
+Disk model: SK hynix BC511 HFM256GDJTNI-82A0A       
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 161C6E93-7C45-45B2-9097-9FB877F5AF88
+
+Device             Start       End   Sectors   Size Type
+/dev/nvme0n1p1      2048    534527    532480   260M EFI System
+/dev/nvme0n1p2    534528 275691519 275156992 131.2G Microsoft 
+/dev/nvme0n1p3 275691520 277331967   1640448   801M Windows re
+/dev/nvme0n1p4 277331968 278380543   1048576   512M EFI System
+/dev/nvme0n1p5 278380544 282574847   4194304     2G Linux swap
+/dev/nvme0n1p6 282574848 500118158 217543311 103.7G Linux file
+
+
+Disk /dev/zram0: 4 GiB, 4294967296 bytes, 1048576 sectors
+Units: sectors of 1 * 4096 = 4096 bytes
+Sector size (logical/physical): 4096 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
