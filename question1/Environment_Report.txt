@@ -1,0 +1,107 @@
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.107.13.81' (ED25519) to the list of known hosts.
+arun@10.107.13.81's password:
+                  -`                     arun@beast
+                 .o+`                    ----------
+                `ooo/                    OS: Arch Linux x86_64
+               `+oooo:                   Host: HP Laptop 14s-dy2xxx
+              `+oooooo:                  Kernel: Linux 7.0.11-arch1-1
+              -+oooooo+:                 Uptime: 1 min
+            `/:-:++oooo+:                Packages: 773 (pacman)
+           `/++++/+++++++:               Shell: zsh 5.9.1
+          `/++++++++++++++:              Display (LGD0613): 1920x1080 in 14", 60 Hz [Built-in]
+         `/+++ooooooooooooo/`            Terminal: /dev/pts/1
+        ./ooosssso++osssssso+`           CPU: 11th Gen Intel(R) Core(TM) i3-1115G4 (4) @ 4.10 GHz
+       .oossssso-````/ossssss+`          GPU: Intel UHD Graphics G4 @ 1.25 GHz [Integrated]
+      -osssssso.      :ssssssso.         Memory: 1.60 GiB / 7.40 GiB (22%)
+     :osssssss/        osssso+++.        Swap: 0 B / 6.00 GiB (0%)
+    /ossssssss/        +ssssooo/-        Disk (/): 17.36 GiB / 103.73 GiB (17%) - btrfs
+  `/ossssso+/:-        -:/+osssso+-      Local IP (wlo1): 10.107.13.81/24
+ `+sso+:-`                 `.-/+oso:     Battery (Primary): 77% [AC Connected, Charging]
+`++:.                           `-/+/    Locale: en_US.UTF-8
+.`                                 `/
+
+
+(This command displays the username of the currently logged-in user. It confirms which account is executing the commands.)
+~ ➜ whoami
+arun
+
+
+(This command lists all groups associated with the current user. Group memberships determine access permissions to files and resources.)
+~ ➜ groups
+arun docker wheel
+
+
+(This command displays the default shell being used. The shell provides the command-line interface for interacting with Linux.)
+~ ➜ echo $SHELL
+/bin/zsh
+
+
+(This command prints the current working directory. It helps verify the location where files are being created and managed.)
+~ ➜ pwd
+/home/arun
+
+
+(This command lists all files and directories, including hidden files, with detailed permissions. It provides information about ownership and access rights.)
+~ ➜ ls -la
+.rw------- 9.1k arun 11 Jun 12:13 󱆃 .bash_history
+.rw-r--r--   34 arun 30 May 03:18 󱆃 .bash_profile
+.rw-r--r--   89 arun 30 May 03:18 󱆃 .bashrc
+drwx------    - arun 16 Jun 21:50  .cache
+drwxr-xr-x    - arun  5 Jun 00:49  .cargo
+drwxr-xr-x    - arun 11 Jun 12:41  .claude
+.rw-------  25k arun 11 Jun 12:46  .claude.json
+drwx------    - arun  8 Jun 01:43  .config
+drwx------    - arun  4 Jun 12:41  .copilot
+.rw-r--r-- 417k arun 30 May 19:18  .face
+.rw-r--r--   79 arun  5 Jun 18:56 󰊢 .gitconfig
+drwx------    - arun 30 May 03:45  .gnupg
+.rw-r--r--  584 arun 30 May 19:28  .gtkrc-2.0
+drwxr-xr-x    - arun 30 May 04:38  .local
+drwxr-xr-x    - arun 30 May 04:57  .npm
+drwxr-xr-x    - arun 11 Jun 12:41  .ollama
+drwx------    - arun  4 Jun 12:35  .pki
+.rw-r--r--   15 arun  6 Jun 00:46  .python_history
+drwxr-xr-x    - arun  4 Jun 18:01 󰢬 .ssh
+.rw-------    0 arun 11 Jun 17:18  .tig_history
+drwxr-xr-x    - arun  4 Jun 12:35  .vscode-oss
+drwxr-xr-x    - arun  4 Jun 12:35  .vscode-oss-shared
+.rw-r--r--  55k arun  8 Jun 16:50  .zcompdump
+.rw-r--r-- 236k arun  3 Jul 15:29 󱆃 .zsh_history
+lrwxrwxrwx    - arun  5 Jun 23:41 󱆃 .zshrc -> dotfiles/zsh/.zshrc
+.rw-r--r--  917 arun 30 May 04:14  .zshrc.bak
+.rw-r--r-- 918k arun  4 Jun 19:04  20260604_190432.png
+.rw-r--r-- 4.7k root 10 Jun 11:59  Background.qml.bak
+drwxr-xr-x    - arun 31 May 02:18  backup-rice
+.rw-r--r-- 7.0k arun  5 Jun 18:54  before-arrow-delete.qml
+.rw-r--r-- 201k arun  5 Jun 22:52 󰕙 boot.svg
+.rw-r--r--   45 arun  2 Jun 03:39  caelestia-debug.tar.gz
+drwxr-xr-x    - arun 31 May 14:07  claudeee
+drwxr-xr-x    - arun  4 Jun 19:19  config-backups
+.rw-r--r--   74 arun 10 Jun 15:41  dd.txt
+.rw-r--r-- 7.0k arun  2 Jun 03:38  debug.txt
+drwxr-xr-x    - arun 30 May 03:04 󰲂 Documents
+drwxr-xr-x    - arun 13 Jun 00:12  dotfiles
+drwxr-xr-x    - arun 11 Jun 23:14 󰉍 Downloads
+.rw-r--r--    0 arun  7 Jun 23:57 󰡯 hyprctl
+drwxr-xr-x    - arun 30 May 19:37 󱍙 Music
+drwxr-xr-x    - arun 11 Jun 15:29 󰉏 Pictures
+drwxr-xr-x    - arun 31 May 04:23  rice-backup
+.rw-r--r--  746 arun 31 May 13:48  run_claude_glm.ps1
+drwxr-xr-x    - arun 10 Jun 00:29 󰣞 src
+drwxr-xr-x    - arun  9 Jun 00:31  tmp
+.rw-r--r-- 2.9M arun  5 Jun 18:56 󰡯 typescript
+drwxr-xr-x    - arun 30 May 02:50  Videos
+
+
+(This command checks network connectivity by sending ICMP packets. Successful replies indicate that the system has network access.)
+~ ➜ ping -c 4 google.com
+PING google.com (2404:6800:4007:834::200e) 56 data bytes
+64 bytes from pnmaaa-av-in-x0e.1e100.net (2404:6800:4007:834::200e): icmp_seq=1 ttl=116 time=192 ms
+64 bytes from pnmaaa-av-in-x0e.1e100.net (2404:6800:4007:834::200e): icmp_seq=2 ttl=116 time=327 ms
+64 bytes from pnmaaa-av-in-x0e.1e100.net (2404:6800:4007:834::200e): icmp_seq=3 ttl=116 time=148 ms
+^C
+--- google.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 148.239/222.408/327.135/76.163 ms
+
