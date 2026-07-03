@@ -1,0 +1,39 @@
+(Created a project directory containing separate folders for documentation, source code, and backups. Organizing files improves project management.)
+…/bitsassignment/question2 on  master ➜ mkdir -p Project/{docs,src,backup}
+
+
+(Created an empty documentation file inside the workspace. This file will be used to demonstrate permission changes.)
+…/bitsassignment/question2 on  master ➜ touch Project/docs/plan.txt
+
+
+(Displays current file permissions before modification. The output shows owner, group, and permission bits.)
+…/bitsassignment/question2 on  master ? ➜ ls -l Project/docs
+.rw-r--r-- 0 arun  3 Jul 16:16  plan.txt
+
+(Changed permissions so only the owner can read/write while the group has read-only access. Other users have no access.)
+…/bitsassignment/question2 on  master ? ➜ chmod 640 Project/docs/plan.txt
+
+(The updated permission bits confirm that access restrictions were successfully applied.)
+…/bitsassignment/question2 on  master ? ➜ ls -l Project/docs
+.rw-r----- 0 arun  3 Jul 16:16  plan.txt
+
+
+(Displays ownership information, including the user and group responsible for the directory.)
+
+…/bitsassignment/question2 on  master ? ➜ ls -ld Project
+drwxr-xr-x - arun  3 Jul 16:16  Project
+
+…/bitsassignment/question2 on  master ? ➜ stat Project
+  File: Project
+  Size: 26        	Blocks: 0          IO Block: 4096   directory
+Device: 0,36	Inode: 749927      Links: 1
+Access: (0755/drwxr-xr-x)  Uid: ( 1000/    arun)   Gid: ( 1000/    arun)
+Access: 2026-07-03 16:16:34.683177308 +0530
+Modify: 2026-07-03 16:16:34.669169593 +0530
+Change: 2026-07-03 16:16:34.669169593 +0530
+ Birth: 2026-07-03 16:16:34.669169593 +0530
+
+
+(Displays the default permission mask used when creating new files and directories.)
+…/bitsassignment/question2 on  master ? ➜ umask
+022
